@@ -1,6 +1,24 @@
 # PawPal+ Project Reflection
 
 ## 1. System Design
+Core actions
+-add pet and owner info
+-add tasks
+-view tasks
+-generate schedule
+
+Objects
+### Pet 
+ Attributes: name, animal
+ Methods: delete pet, add pet
+
+### Task
+Attributes - time to complete, priority
+Methods - set time, set priority, view tasks, delete task, add task, update task
+
+### Shcedule
+Attributes- schedule
+Methods - generate schedule, delete schedule
 
 **a. Initial design**
 
