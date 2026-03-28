@@ -23,12 +23,29 @@ Methods - generate schedule, delete schedule
 **a. Initial design**
 
 - Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+My initial UML design consists of 4 core classes
+- What classes did you include, and what responsibilities did you assign to each? The classes were pet - Attributes: name, animal
+ Methods: delete pet, add pet
 
+ owner - attributes: name, pets. 
+ Methods: delete pet, add pet
+
+ task
+ Attributes: time to complete, priority
+ methods: set time, set priority, view tasks, delete task, add task, update task
+
+ Shcedule
+Attributes- schedule
+Methods - generate schedule, delete schedule
+
+ 
 **b. Design changes**
 
 - Did your design change during implementation?
+yes
 - If yes, describe at least one change and why you made it.
+I connected a couple of classes together makeing them have some kind of relationship. 
+e.g linking task to pet, task now has a pet_name property to know what pet has a task
 
 ---
 
@@ -37,12 +54,17 @@ Methods - generate schedule, delete schedule
 **a. Constraints and priorities**
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
-- How did you decide which constraints mattered most?
+It first goes with priority above all, then breaks priority ties(same priority) using duration. shorter tasks first.
+for the time constraint/budget, the tasks are picked in a greedy manner until no time left.
+- How did you decide which constraints. mattered most?
+The constraint thats very specific and chosen by the user "Priority" 
 
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
+The greedy manner definitely, it does not go as deep to know which task should be done at what time. this can be bad because a high priority task may take too much time and leave little to no time left for another high priority task
 - Why is that tradeoff reasonable for this scenario?
+Its reasonable because there are other attributes used for sorting and prioritizing. 
 
 ---
 
