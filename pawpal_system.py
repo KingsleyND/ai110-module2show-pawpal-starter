@@ -6,6 +6,10 @@ from typing import List, Literal
 class Pet:
     name: str
     animal: str  # e.g. "dog", "cat", "other"
+    tasks: List["Task"] = field(default_factory=list)
+
+    def add_task(self, task: "Task"):
+        self.tasks.append(task)
 
 
 @dataclass
@@ -14,12 +18,17 @@ class Task:
     time_to_complete: int                        # minutes
     priority: Literal["low", "medium", "high"]
     pet_name: str = ""                           # which pet this task belongs to
+    completed: bool = False
 
     def set_time(self, minutes: int):
         self.time_to_complete = minutes
 
     def set_priority(self, priority: Literal["low", "medium", "high"]):
         self.priority = priority
+
+    def mark_complete(self) -> bool:
+        self.completed = True
+        return True
 
 
 @dataclass
