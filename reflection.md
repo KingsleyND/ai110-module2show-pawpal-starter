@@ -73,13 +73,16 @@ Its reasonable because there are other attributes used for sorting and prioritiz
 **a. How you used AI**
 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
+brainstorming, generating tests(a lot), debugging and improvement suggestions
 - What kinds of prompts or questions were most helpful?
+The improvement sugestions were probably the most helpful and impactful
 
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
+It over engineered a couple of things, especially the algorithm aspect
 - How did you evaluate or verify what the AI suggested?
-
+    I looked and tested how the app worked in the moment before deciding if it would be the right way to move.
 ---
 
 ## 4. Testing and Verification
@@ -87,13 +90,15 @@ Its reasonable because there are other attributes used for sorting and prioritiz
 **a. What you tested**
 
 - What behaviors did you test?
+I tested four core behaviors: chronological sorting of tasks by HH:MM start time, recurring task logic (marking complete and generating the next occurrence), conflict detection between overlapping time windows, and filtering tasks by pet name or completion status. Each behavior was tested against both happy paths (normal expected input) and edge cases such as an empty task list, a single task, back-to-back tasks that touch but do not overlap, and non-recurring tasks that should produce no side effects.
 - Why were these tests important?
 
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
+I'm 97% confident it works correctly and how it should work. My confidence is based on the amount of testcases I set up.
 - What edge cases would you test next if you had more time?
-
+    How much tasks the app can handle while maintaining current speed. Basically work load test.
 ---
 
 ## 5. Reflection
@@ -101,11 +106,14 @@ Its reasonable because there are other attributes used for sorting and prioritiz
 **a. What went well**
 
 - What part of this project are you most satisfied with?
+The sorting aspect. I like the brainstorming that I did with the AI assistance, I was able to weigh different tradeoffs and it came out great.
 
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
+definitely the UI component, I feel it needs more work and right now its a bit bland for a pet app.
 
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+AI needs a lot of help in terms of where it should go. but when you tell it where to go and it knows, its mostly smooth and very productive.

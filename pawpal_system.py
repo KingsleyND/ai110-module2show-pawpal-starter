@@ -21,6 +21,7 @@ class Task:
     pet_name: str = ""                           # which pet this task belongs to
     completed: bool = False
     time: str = "08:00"                          # scheduled start time in "HH:MM" format
+    recur_days: int = 0                          # 0 = no recurrence; N = repeat every N days
 
     def set_time(self, minutes: int):
         """Update the estimated time to complete this task in minutes."""
@@ -34,6 +35,26 @@ class Task:
         """Mark this task as completed and return True."""
         self.completed = True
         return True
+
+    def complete_and_recur(self, owner: "Owner") -> "Task | None":
+        """Mark this task complete and, if it recurs, add a fresh copy to the owner.
+
+        Returns the new Task if one was created, or None for non-recurring tasks.
+        The new task is identical except completed is reset to False.
+        """
+        self.mark_complete()
+        if self.recur_days > 0:
+            next_task = Task(
+                title=self.title,
+                time_to_complete=self.time_to_complete,
+                priority=self.priority,
+                pet_name=self.pet_name,
+                time=self.time,
+                recur_days=self.recur_days,
+            )
+            owner.add_task(next_task)
+            return next_task
+        return None
 
 
 @dataclass
